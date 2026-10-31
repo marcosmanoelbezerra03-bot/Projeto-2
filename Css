@@ -1,0 +1,95 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    color: white;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    padding: 40px;
+    text-align: center;
+    background: #1e293b;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px #00000040;
+}
+
+h1 {
+    color: #fb7185;
+    margin-bottom: 10px;
+}
+
+.descricao {
+    color: #cbd5e1;
+}
+
+.cartao {
+    margin: 30px 0;
+    padding: 25px;
+    background: #111c30;
+    border-radius: 15px;
+}
+
+#texto-frase {
+    font-size: 22px;
+    line-height: 1.6;
+}
+
+#autor-frase {
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+button {
+    padding: 14px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 10px;
+    background: #fb7185;
+    color: #1e293b;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    background: #fda4af;
+}
+
+#btn-copiar {
+    background: #334155;
+    color: white;
+}
+
+#contador {
+    margin-top: 25px;
+    color: #cbd5e1;
+}
+
+#mensagem {
+    color: #86efac;
+    font-size: 14px;
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 25px 15px;
+    }
+
+    button {
+        width: 100%;
+        margin: 5px 0;
+    }
+}
