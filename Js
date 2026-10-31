@@ -1,0 +1,111 @@
+
+const frases = [
+    {
+        texto: "Acredite em você!",
+        autor: "Autor desconhecido"
+    },
+    {
+        texto: "O código é sua arte.",
+        autor: "Autor desconhecido"
+    },
+    {
+        texto: "Persista e conquiste.",
+        autor: "Autor desconhecido"
+    },
+    {
+        texto: "Menos é mais.",
+        autor: "Autor desconhecido"
+    },
+    {
+        texto: "Cada erro é uma oportunidade de aprender.",
+        autor: "Autor desconhecido"
+    },
+    {
+        texto: "Grandes resultados começam com pequenos passos.",
+        autor: "Autor desconhecido"
+    },
+    {
+        texto: "Nunca pare de aprender.",
+        autor: "Autor desconhecido"
+    },
+    {
+        texto: "A prática leva ao progresso.",
+        autor: "Autor desconhecido"
+    },
+    {
+        texto: "Transforme suas ideias em realidade.",
+        autor: "Autor desconhecido"
+    },
+    {
+        texto: "O conhecimento abre portas.",
+        autor: "Autor desconhecido"
+    },
+    {
+        texto: "Continue tentando.",
+        autor: "Autor desconhecido"
+    },
+    {
+        texto: "Aprender é crescer.",
+        autor: "Autor desconhecido"
+    },
+    {
+        texto: "Um passo de cada vez.",
+        autor: "Autor desconhecido"
+    },
+    {
+        texto: "A disciplina transforma planos em resultados.",
+        autor: "Autor desconhecido"
+    },
+    {
+        texto: "Você é capaz de aprender coisas novas.",
+        autor: "Autor desconhecido"
+    }
+];
+
+const botao = document.querySelector("#btn-nova");
+const botaoCopiar = document.querySelector("#btn-copiar");
+const texto = document.querySelector("#texto-frase");
+const autor = document.querySelector("#autor-frase");
+const contador = document.querySelector("#contador");
+const mensagem = document.querySelector("#mensagem");
+
+let quantidadeGerada = 0;
+let indiceAnterior = -1;
+
+function gerarFrase() {
+    let indice;
+
+    do {
+        indice = Math.floor(Math.random() * frases.length);
+    } while (indice === indiceAnterior);
+
+    indiceAnterior = indice;
+
+    texto.innerText = frases[indice].texto;
+    autor.innerText = "— " + frases[indice].autor;
+
+    quantidadeGerada++;
+
+    contador.innerText =
+        "Frases geradas: " + quantidadeGerada;
+
+    mensagem.innerText = "";
+}
+
+botao.addEventListener("click", gerarFrase);
+
+botaoCopiar.addEventListener("click", async function () {
+    const fraseCompleta =
+        texto.innerText + " " + autor.innerText;
+
+    try {
+        await navigator.clipboard.writeText(fraseCompleta);
+        mensagem.innerText = "Frase copiada!";
+    } catch (erro) {
+        mensagem.innerText =
+            "Não foi possível copiar. Tente pelo navegador.";
+    }
+});
+
+// Exibe uma frase ao abrir a página.
+gerarFrase();
